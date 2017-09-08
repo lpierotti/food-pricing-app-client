@@ -1,5 +1,6 @@
 import React from 'react'
 import RecipeAdapter from '../adapters/recipeAdapter'
+import Recipe from './Recipe'
 
 class RecipeSearch extends React.Component {
 	constructor() {
@@ -33,6 +34,7 @@ class RecipeSearch extends React.Component {
 					<input type="text" value={this.state.searchTerm} onChange={this.handleChange}/>
 					<input type="submit" />
 				</form>
+				<Recipe data={this.state.response}/>
 			</div>
 
 		)
