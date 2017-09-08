@@ -13,7 +13,7 @@ export default class RecipeAdapter {
 			},
 			body: JSON.stringify({recipe: {searchTerm: recipe}})
 		}
-		var recipeData ={};
+		
 		return fetch(this.baseUrl, recipeSearchParams)
 			.then(resp => resp.json())
 	}
