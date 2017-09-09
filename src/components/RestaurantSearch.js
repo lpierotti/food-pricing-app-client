@@ -24,16 +24,20 @@ class RestaurantSearch extends React.Component {
 		)
 	}
 
+	showMenu = (venue_id) => {
+		const adapter = new RestaurantAdapter()
+		adapter.getMenu(venue_id).then(json => this.setState({response: json}))
+	}
+
 
 	render() {
-		console.log(this.state.response)
 		return (
 			<div>
 				<form onSubmit={this.handleSubmit}>
 					<input type="text" value={this.state.searchTerm} onChange={this.handleChange}/>
 					<input type="submit" />
 				</form>
-				<Restaurants data={this.state.response}/>
+				<Restaurants data={this.state.response} showMenu={this.showMenu}/>
 			</div>
 
 		)

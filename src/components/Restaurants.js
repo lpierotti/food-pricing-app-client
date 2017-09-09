@@ -1,12 +1,10 @@
 import React from 'react'
-import Venue from './Venue'
+import Restaurant from './Restaurant'
 
 const Restaurants = (props) => {
-  console.log('hello')
-  console.log(props)
   return (
     <div>
-      <h3>{props.data.venues ? props.data.venues.map(venue => <Venue data={venue}/>) : null}</h3>
+      <h3>{props.data.venues ? props.data.venues.map(venue => <Restaurant data={venue} showMenu={props.showMenu}/>) : null}</h3>
     </div>
   )
 }

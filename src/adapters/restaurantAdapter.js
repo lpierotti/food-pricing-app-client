@@ -1,6 +1,7 @@
 export default class RestaurantAdapter {
 	constructor() {
-		this.baseUrl = 'http://localhost:3000/api/v1/restaurants'		
+		this.baseUrl = 'http://localhost:3000/api/v1/restaurants'	
+		this.baseUrl2 = 'http://localhost:3000/api/v1/menus'		
 	}
 
 	getRestaurants(restaurant) {
@@ -17,17 +18,17 @@ export default class RestaurantAdapter {
 
 	}
 
-	getVenue(venue) {
-		const venueSearchParams = {
+	getMenu(venueId) {
+		const menuSearchParams = {
 			method: 'post',
 			headers: {
 				'Content-Type':'application/json',
 				'Accept': 'application/json'
 			},
-			body: JSON.stringify({venue: {searchTerm: venue}})
+			body: JSON.stringify({restaurant: {venueId: venueId}})
 		}
 		
-		return fetch(this.baseUrl, venueSearchParams)
+		return fetch(this.baseUrl2, menuSearchParams)
 			.then(resp => resp.json())
 	}
 }

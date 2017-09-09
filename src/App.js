@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Route} from 'react-router-dom'
 import RecipeSearch from './components/RecipeSearch'
 import RestaurantSearch from './components/RestaurantSearch'
+import Menu from './components/Menu'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <RestaurantSearch />
-        <RecipeSearch />
-
+        <Route exact path={'/'} component={RestaurantSearch}/>
+        <Route exact path={'/'} component={RecipeSearch}/>
+        <Route path={'/menus/:id'} render={(match) => <Menu venueId={match} />}/>
       </div>
     );
   }

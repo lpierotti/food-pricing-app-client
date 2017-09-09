@@ -26,7 +26,6 @@ class RecipeSearch extends React.Component {
 
 
 	render() {
-		console.log(this.state.response)
 		return (
 			<div>
 				<form onSubmit={this.handleSubmit}>
