@@ -1,6 +1,6 @@
 export default class RecipeAdapter {
 	constructor() {
-		this.baseUrl = 'http://localhost:3000/recipes'		
+		this.baseUrl = 'http://localhost:3000/api/v1/recipes'		
 	}
 
 	getRecipe(recipe) {

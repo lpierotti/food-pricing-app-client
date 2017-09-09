@@ -1,6 +1,6 @@
 export default class RestaurantAdapter {
 	constructor() {
-		this.baseUrl = 'http://localhost:3000/restaurants'		
+		this.baseUrl = 'http://localhost:3000/api/v1/restaurants'		
 	}
 
 	getRestaurants(restaurant) {
