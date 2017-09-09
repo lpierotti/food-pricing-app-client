@@ -3,7 +3,7 @@ export default class RestaurantAdapter {
 		this.baseUrl = 'http://localhost:3000/restaurants'		
 	}
 
-	getRestaurant(restaurant) {
+	getRestaurants(restaurant) {
 		const restaurantSearchParams = {
 			method: 'post',
 			headers: {
@@ -12,8 +12,22 @@ export default class RestaurantAdapter {
 			},
 			body: JSON.stringify({restaurant: {searchTerm: restaurant}})
 		}
-		
 		return fetch(this.baseUrl, restaurantSearchParams)
+			.then(resp => resp.json())
+
+	}
+
+	getVenue(venue) {
+		const venueSearchParams = {
+			method: 'post',
+			headers: {
+				'Content-Type':'application/json',
+				'Accept': 'application/json'
+			},
+			body: JSON.stringify({venue: {searchTerm: venue}})
+		}
+		
+		return fetch(this.baseUrl, venueSearchParams)
 			.then(resp => resp.json())
 	}
 }

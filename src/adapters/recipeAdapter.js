@@ -1,4 +1,3 @@
-
 export default class RecipeAdapter {
 	constructor() {
 		this.baseUrl = 'http://localhost:3000/recipes'		

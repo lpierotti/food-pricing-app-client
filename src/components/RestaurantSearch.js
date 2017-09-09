@@ -1,6 +1,6 @@
 import React from 'react'
-import RecipeAdapter from '../adapters/recipeAdapter'
-import Recipe from './Recipe'
+import RestaurantAdapter from '../adapters/restaurantAdapter'
+import Restaurants from './Restaurants'
 
 class RestaurantSearch extends React.Component {
 	constructor() {
@@ -18,11 +18,10 @@ class RestaurantSearch extends React.Component {
 	}
 
 	handleSubmit = (event) => {
-		debugger
 		event.preventDefault()
 		const adapter = new RestaurantAdapter()
-		console.log(this.state.searchTerm)
-		adapter.getRestaurant(this.state.searchTerm).then(json => this.setState({response: json}))
+		adapter.getRestaurants(this.state.searchTerm).then(json => this.setState({response: json})
+		)
 	}
 
 
@@ -34,7 +33,7 @@ class RestaurantSearch extends React.Component {
 					<input type="text" value={this.state.searchTerm} onChange={this.handleChange}/>
 					<input type="submit" />
 				</form>
-				<Restaurant data={this.state.response}/>
+				<Restaurants data={this.state.response}/>
 			</div>
 
 		)

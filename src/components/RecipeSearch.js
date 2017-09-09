@@ -18,7 +18,6 @@ class RecipeSearch extends React.Component {
 	}
 
 	handleSubmit = (event) => {
-		debugger
 		event.preventDefault()
 		const adapter = new RecipeAdapter()
 		console.log(this.state.searchTerm)
