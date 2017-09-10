@@ -11,4 +11,3 @@ const Restaurants = (props) => {
 
 export default Restaurants 
 
-// list restaurants, then you can click a restaurant, and it will display the menu

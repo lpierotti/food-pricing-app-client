@@ -18,14 +18,6 @@ class Menu extends React.Component {
     adapter.getMenu(this.props.venueId.match.params.id).then(json => this.setState({menu: json}))
   }
 
-  // getRecipe = (event) => {
-  //   event.preventDefault()
-  //   const adapter = new RestaurantAdapter()
-  //   adapter.getRestaurants(this.state.searchTerm).then(json => this.setState({recipe: json})
-  //   )
-  // }
-
-
 
   ///we could split the types into another page if we want
   render() {

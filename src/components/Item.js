@@ -12,7 +12,6 @@ class Item extends React.Component {
   }
 
   searchItem = () => {
-  	console.log(this.props.data.name)
   	if (this.state.clicked) {
   		this.setState({clicked: false, recipe:{}})
   	} else {
@@ -23,14 +22,15 @@ class Item extends React.Component {
   	
   }
 
+
+
   render() {
   	return (
 	    <div>
 	      <h1 onClick={this.searchItem}>{this.props.data.name}</h1>
 	      <h3>{this.props.data.description}</h3>
 	      <h3>{this.props.data.price}</h3>
-	      {this.state.clicked ? <Recipe data={this.state.recipe}/> : null}
-	    	
+	      {this.state.clicked ? <Recipe data={this.state.recipe}/> : null}	    	
 	    </div>
 	  )
   }
