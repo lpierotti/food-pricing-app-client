@@ -19,7 +19,7 @@ class Menu extends React.Component {
     console.log(this.state.menu.menu)
     return (
       <div>
-        <h3>{this.state.menu.menu ? this.state.menu.menu.map(type => <div><li>{type.name}</li><li>{type.description}</li>{type.entries.items.map(item => <div><li>{item.name}</li></div>)}</div>) : null}</h3>
+        {this.state.menu.menu ? this.state.menu.menu.map(type => <div><h3>{type.name}</h3><p>{type.description}</p>{type.entries.items.map(item => <div><li>{item.name} {item.description} {item.price}</li></div>)}</div>) : null}
       </div>
     )
   }
