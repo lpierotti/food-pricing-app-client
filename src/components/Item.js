@@ -1,18 +1,39 @@
 import React from 'react'
+import RecipeAdapter from '../adapters/recipeAdapter'
+import Recipe from './Recipe'
 
-const Item = (props) => {
-  function searchItem() {
-
+class Item extends React.Component {
+  constructor(props) {
+  	super(props)
+  	this.state = {
+  		clicked: false,
+  		recipe: {}
+  	}
   }
 
-  return (
-    <div>
-      <h1>{props.data.name}</h1>
-      <h3>{props.data.description}</h3>
-      <h3>{props.data.price}</h3>
-    
-    </div>
-  )
+  searchItem = () => {
+  	console.log(this.props.data.name)
+  	if (this.state.clicked) {
+  		this.setState({clicked: false, recipe:{}})
+  	} else {
+  		this.setState({clicked: true})
+  		const adapter = new RecipeAdapter()
+  		adapter.getRecipe(this.props.data.name).then(json => this.setState({recipe: json}))
+  	}
+  	
+  }
+
+  render() {
+  	return (
+	    <div>
+	      <h1 onClick={this.searchItem}>{this.props.data.name}</h1>
+	      <h3>{this.props.data.description}</h3>
+	      <h3>{this.props.data.price}</h3>
+	      {this.state.clicked ? <Recipe data={this.state.recipe}/> : null}
+	    	
+	    </div>
+	  )
+  }
 }
 
 export default Item 
