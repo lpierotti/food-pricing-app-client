@@ -33,10 +33,13 @@ class RestaurantSearch extends React.Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.handleSubmit}>
-					<input type="text" value={this.state.searchTerm} onChange={this.handleChange}/>
-					<input type="submit" />
-				</form>
+				<img className="header-img" src="pasta.jpg" />
+				<div className="search-form">
+					<form onSubmit={this.handleSubmit}>
+						<input type="text" value={this.state.searchTerm} onChange={this.handleChange}/>
+						<input type="submit" />
+					</form>
+				</div>
 				<Restaurants data={this.state.response} showMenu={this.showMenu}/>
 			</div>
 

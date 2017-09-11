@@ -2,6 +2,7 @@ import React from 'react'
 import RecipeAdapter from '../adapters/recipeAdapter'
 import Recipe from './Recipe'
 import { Card } from 'semantic-ui-react'
+import RecipeModal from './RecipeModal'
 
 class Item extends React.Component {
   constructor(props) {
@@ -34,9 +35,9 @@ class Item extends React.Component {
 		    header={this.props.data.name}
 		    meta={this.props.data.price}
 		    description={this.props.data.description}> 
-		    {this.state.clicked ? <Recipe data={this.state.recipe}/> : null}
+		    
 		  </Card>
-	     
+	     <RecipeModal data={this.state.recipe}/>
 	    </div>
 	  )
   }

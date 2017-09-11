@@ -38,3 +38,17 @@
   left:0;right:0;
   clear: left;
 }
+
+.header-img {
+  width: 100%;
+  position: absolute;
+  left: 0%;
+  z-index: -1;
+}
+
+.search-form {
+  z-index: 10;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+}

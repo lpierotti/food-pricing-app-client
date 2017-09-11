@@ -58,7 +58,7 @@ class Recipe extends React.Component {
     const price = this.getPrice();
     console.log(this.props)
     return (
-      <div className="ui link card">
+      <div>
         <h1>{this.props.data.name}</h1>
         <img src={this.props.data.image} alt=""/>
         <h3>Serves {this.props.data.yield} people</h3>
