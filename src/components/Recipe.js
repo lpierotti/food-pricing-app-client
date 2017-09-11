@@ -15,8 +15,8 @@ class Recipe extends React.Component {
   filteredName = (name) => {
     let filter = /[a-zA-Z]+(?![^(]*\))/g
     let filteredString = name.match(filter).join(" ").toLowerCase();
-    let replacements = /\b(cup |cups |teaspoon |teaspoons |tablespoon |tablespoons |quart |quarts |pint |pints |dash |pinch |pinches |pound |pounds |tbsp |tsp |fluid oz. |fluid oz |fluid ounce |fluid ounces |ounce |ounces |kilogram |kilograms |gram |grams |ml |mls |gallon |gallons |gal. |liter |liters |stick |sticks |head |peeled | peeled|large |bunches |cloves |sliced |piece |cm |inch |coarsely |torn |halved |lengthwise |finely |minced |torn| lb|taste |)\b/gi
-    let prepositions = /\b( a | the | an | to | of | in | for | about )\b/gi
+    let replacements = /\b(cup |cups |teaspoon |teaspoons |tablespoon |tablespoons |quart |quarts |pint |pints |dash |pinch |pinches |pound |pounds |tbsp |tsp |fluid oz. |fluid oz |fluid ounce |fluid ounces |ounce |ounces |kilogram |kilograms |gram |grams |ml |mls |gallon |gallons |gal. |liter |liters |stick |sticks |head |peeled |peeled |cooked |large |bunches |cloves |sliced |piece |cm |inch |coarsely |torn |halved |lengthwise |finely |minced |torn| lb|taste |sliced |melted )\b/gi
+    let prepositions = /\b( a | the | an | and | to | of | in | or | for | about )\b/gi
     return filteredString.replace(replacements,"").replace(prepositions," ");            
   }
 
@@ -56,10 +56,12 @@ class Recipe extends React.Component {
 
   render() {
     const price = this.getPrice();
+    console.log(this.props)
     return (
-      <div>
+      <div className="ui link card">
         <h1>{this.props.data.name}</h1>
-        <h3>{this.props.data.yield}</h3>
+        <img src={this.props.data.image} alt=""/>
+        <h3>Serves {this.props.data.yield} people</h3>
         <h3>{this.props.data.ingredients ? this.props.data.ingredients.map(ingredient => <li><Ingredient ingredient={ingredient}/></li>) : null}</h3>
         <p> Recipe Cost: ${price}</p>
       </div>

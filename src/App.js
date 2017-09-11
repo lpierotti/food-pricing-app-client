@@ -11,6 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
+          <h1>Butter Grams</h1>
         </div>
         <Route exact path={'/'} component={RestaurantSearch}/>
         <Route path={'/menus/:id'} render={(match) => <Menu venueId={match} />}/>
