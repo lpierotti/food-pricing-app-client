@@ -15,16 +15,17 @@ class Item extends React.Component {
   	if (this.state.clicked) {
   		this.setState({clicked: false, recipe:{}})
   	} else {
-  		this.setState({clicked: true})
+  		// this.setState({clicked: true})
   		const adapter = new RecipeAdapter()
-  		adapter.getRecipe(this.props.data.name).then(json => this.setState({recipe: json}))
+  		adapter.getRecipe(this.props.data.name).then(json => this.setState({clicked: true, recipe: json}))
   	}
-  	
+
   }
 
 
 
   render() {
+  	// console.log(this.state)
   	return (
 	    <div>
 	      <h1 onClick={this.searchItem}>{this.props.data.name}</h1>

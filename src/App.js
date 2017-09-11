@@ -13,7 +13,6 @@ class App extends Component {
         <div className="App-header">
         </div>
         <Route exact path={'/'} component={RestaurantSearch}/>
-        <Route exact path={'/'} component={RecipeSearch}/>
         <Route path={'/menus/:id'} render={(match) => <Menu venueId={match} />}/>
       </div>
     );

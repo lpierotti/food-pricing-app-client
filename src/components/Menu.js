@@ -21,10 +21,10 @@ class Menu extends React.Component {
 
   ///we could split the types into another page if we want
   render() {
-    console.log(this.state.menu.menu)
+    // console.log(this.state.menu.menu)
     return (
       <div>
-        {this.state.menu.menu ? this.state.menu.menu.map(type => <div key={type.name}><h3>{type.name}</h3><p>{type.description}</p>{type.entries.items.map(item => <div key={item.name}><li><Item data={item} description={item} price={item}/></li></div>)}</div>) : null}
+        {this.state.menu.menu ? this.state.menu.menu.map((type,index) => <div key={index}><h3>{type.name}</h3><p>{type.description}</p>{type.entries.items.map((item,index) => <div key={index}><li><Item data={item} description={item} price={item}/></li></div>)}</div>) : null}
       </div>
     )
   }
