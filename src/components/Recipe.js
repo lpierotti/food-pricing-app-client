@@ -8,24 +8,24 @@ class Recipe extends React.Component {
     super(props)
 
     this.state = {
-      ingredients: [],
-      matchingIngredients: []
+      ingredients: []
     }
   }
 
   filteredName = (name) => {
     let filter = /[a-zA-Z]+(?![^(]*\))/g
     let filteredString = name.match(filter).join(" ").toLowerCase();
-    let replacements = /\b(cup |cups |teaspoon |teaspoons |tablespoon |tablespoons |quart |quarts |pint |pints |dash |pinch |pinches |pound |pounds |tbsp |tsp |fluid oz. |fluid oz |fluid ounce |fluid ounces |ounce |ounces |kilogram |kilograms |gram |grams |ml |mls |gallon |gallons |gal. |liter |liters |stick |sticks |head |peeled | peeled |large |bunches |cloves |sliced |piece |cm |inch |coarsely |torn |)\b/gi
-    let prepositions = /\b( a | the | an | to | of | in | for )\b/gi
+    let replacements = /\b(cup |cups |teaspoon |teaspoons |tablespoon |tablespoons |quart |quarts |pint |pints |dash |pinch |pinches |pound |pounds |tbsp |tsp |fluid oz. |fluid oz |fluid ounce |fluid ounces |ounce |ounces |kilogram |kilograms |gram |grams |ml |mls |gallon |gallons |gal. |liter |liters |stick |sticks |head |peeled | peeled|large |bunches |cloves |sliced |piece |cm |inch |coarsely |torn |halved |lengthwise |finely |minced |torn| lb|taste |)\b/gi
+    let prepositions = /\b( a | the | an | to | of | in | for | about )\b/gi
     return filteredString.replace(replacements,"").replace(prepositions," ");            
   }
 
   setIngredients = () => {
-    console.log(this.props.data.ingredients)
     let ingredients = []
-    for (let i = 0; i < this.props.data.ingredients.length; i++){
-      ingredients.push(this.filteredName(this.props.data.ingredients[i].text))
+    if (this.props.data.ingredients.length > 0) {
+      for (let i = 0; i < this.props.data.ingredients.length; i++){
+        ingredients.push({name:this.filteredName(this.props.data.ingredients[i].text), amount:this.props.data.ingredients[i].weight})
+      }
     }
     return ingredients;
   }
@@ -38,16 +38,30 @@ class Recipe extends React.Component {
 
   getIngredients = (ingredients) => {
     const adapter = new IngredientsAdapter()
-    adapter.getIngredientsCost(ingredients).then(json => console.log(json))
+    adapter.getIngredientsCost(ingredients).then(json => this.setState({ingredients: json}))
+  }
+
+  getPrice = () => {
+    let price = 0
+
+    if (this.state.ingredients.ingredients) {
+
+      this.state.ingredients.ingredients.forEach(function(ingredient){
+      price += ingredient.price
+     })
+    return price
+    }
+    return 0;
   }
 
   render() {
+    const price = this.getPrice();
     return (
       <div>
         <h1>{this.props.data.name}</h1>
         <h3>{this.props.data.yield}</h3>
         <h3>{this.props.data.ingredients ? this.props.data.ingredients.map(ingredient => <li><Ingredient ingredient={ingredient}/></li>) : null}</h3>
-        <p> Recipe Cost: $1</p>
+        <p> Recipe Cost: ${price}</p>
       </div>
     )
   }
