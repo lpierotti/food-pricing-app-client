@@ -22,7 +22,7 @@ class Recipe extends React.Component {
 
   setIngredients = () => {
     let ingredients = []
-    if (this.props.data.ingredients.length > 0) {
+    if (this.props.data.ingredients) {
       for (let i = 0; i < this.props.data.ingredients.length; i++){
         ingredients.push({name:this.filteredName(this.props.data.ingredients[i].text), amount:this.props.data.ingredients[i].weight})
       }
