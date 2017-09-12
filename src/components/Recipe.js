@@ -59,8 +59,6 @@ class Recipe extends React.Component {
 
   render() {
     const price = this.getPrice();
-    console.log(this.props)
-    console.log(this.state)
     return (
     	<Modal trigger={<Button onClick={this.props.searchItem}>Get Recipe</Button>}>
 		    <Modal.Header>{this.props.data.name}</Modal.Header>
@@ -72,17 +70,12 @@ class Recipe extends React.Component {
 		      />
 
 		      <Modal.Description>
-		        <Header>Serves {this.props.data.yield} {this.props.data.yield === 1 ? "person" : "people"}</Header>
+		        <Header>Serving Size: {this.props.data.yield} {this.props.data.yield === 1 ? "person" : "people"}</Header>
 		        <p>Try this as an alternative!</p>
 		        {this.props.data.ingredients ? this.props.data.ingredients.map(ingredient => <p><Ingredient ingredient={ingredient}/></p>) : null}
 		      	<p> Recipe Cost: ${price}</p>
 		      </Modal.Description>
 		    </Modal.Content>
-		    <Modal.Actions>
-		      <Button primary>
-		        Proceed <Icon name='right chevron' />
-		      </Button>
-		    </Modal.Actions>
 	    </Modal>
     )
   }

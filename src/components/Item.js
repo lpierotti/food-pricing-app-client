@@ -18,12 +18,10 @@ class Item extends React.Component {
 
   }
 
-
-
   render() {
   	// console.log(this.state)
   	return (
-	    <div className="ui link card">
+	    <div className="ui centered link card">
 	      <Card
 		    link
 		    header={this.props.data.name}

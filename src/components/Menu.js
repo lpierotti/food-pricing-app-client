@@ -23,7 +23,7 @@ class Menu extends React.Component {
   render() {
     // console.log(this.state.menu.menu)
     return (
-      <div>
+      <div className="menu-items">
         {this.state.menu.menu ? this.state.menu.menu.map((type,index) => <div className="menuType" key={index}><h1>{type.name}</h1><p>{type.description}</p>{type.entries.items.map((item,index) => <div key={index}><Item data={item} description={item} price={item}/></div>)}</div>) : null}
       </div>
     )

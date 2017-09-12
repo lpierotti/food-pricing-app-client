@@ -7,7 +7,8 @@ class RestaurantSearch extends React.Component {
 		super()
 		this.state ={
 			searchTerm: "",
-			response: {}
+			response: {},
+			searched: false
 		}
 	}
 
@@ -20,7 +21,7 @@ class RestaurantSearch extends React.Component {
 	handleSubmit = (event) => {
 		event.preventDefault()
 		const adapter = new RestaurantAdapter()
-		adapter.getRestaurants(this.state.searchTerm).then(json => this.setState({response: json})
+		adapter.getRestaurants(this.state.searchTerm).then(json => this.setState({response: json, searched: true})
 		)
 	}
 
@@ -32,16 +33,18 @@ class RestaurantSearch extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<img className="header-img" src="pasta.jpg" />
+			<div className="all">
+				{!this.state.searched ? <img className="header-img" src="pasta.jpg" /> : null}
 				<div className="search-form">
 					<form onSubmit={this.handleSubmit}>
-						<input type="text" value={this.state.searchTerm} onChange={this.handleChange}/>
-						<input type="submit" />
+						<span><input type="text" class="search rounded" value={this.state.searchTerm} onChange={this.handleChange}/></span>
+						<span><input type="submit" class="search square"/></span>
 					</form>
 				</div>
 				<Restaurants data={this.state.response} showMenu={this.showMenu}/>
 			</div>
+
+
 
 		)
 	}
