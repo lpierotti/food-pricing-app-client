@@ -1,7 +1,6 @@
 import React from 'react'
 import RestaurantAdapter from '../adapters/restaurantAdapter'
 import Item from './Item'
-import Recipe from './Recipe'
 
 class Menu extends React.Component {
 

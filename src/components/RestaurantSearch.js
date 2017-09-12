@@ -34,11 +34,11 @@ class RestaurantSearch extends React.Component {
 	render() {
 		return (
 			<div className="all">
-				{!this.state.searched ? <img className="header-img" src="pasta.jpg" /> : null}
+				{!this.state.searched ? <img className="header-img" src="pasta.jpg" alt=""/> : null}
 				<div className="search-form">
 					<form onSubmit={this.handleSubmit}>
-						<span><input type="text" class="search rounded" value={this.state.searchTerm} onChange={this.handleChange}/></span>
-						<span><input type="submit" class="search square"/></span>
+						<span><input type="text" className="search rounded" value={this.state.searchTerm} onChange={this.handleChange}/></span>
+						<span><input type="submit" className="search square"/></span>
 					</form>
 				</div>
 				<Restaurants data={this.state.response} showMenu={this.showMenu}/>
