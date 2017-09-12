@@ -1,6 +1,7 @@
 import React from 'react'
 import Ingredient from './Ingredient'
 import IngredientsAdapter from '../adapters/ingredientsAdapter'
+import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react'
 
 class Recipe extends React.Component {
 
@@ -45,7 +46,7 @@ class Recipe extends React.Component {
     let price = 0
 
     if (this.state.ingredients.ingredients) {
-
+    	debugger
       this.state.ingredients.ingredients.forEach(function(ingredient){
       price += ingredient.price
      })
@@ -58,13 +59,28 @@ class Recipe extends React.Component {
     const price = this.getPrice();
     console.log(this.props)
     return (
-      <div>
-        <h1>{this.props.data.name}</h1>
-        <img src={this.props.data.image} alt=""/>
-        <h3>Serves {this.props.data.yield} people</h3>
-        <h3>{this.props.data.ingredients ? this.props.data.ingredients.map(ingredient => <li><Ingredient ingredient={ingredient}/></li>) : null}</h3>
-        <p> Recipe Cost: ${price}</p>
-      </div>
+    	<Modal trigger={<Button>Get Recipe</Button>}>
+		    <Modal.Header>{this.props.data.name}</Modal.Header>
+		    <Modal.Content image scrolling>
+		      <Image
+		        size='medium'
+		        src={this.props.data.image}
+		        wrapped
+		      />
+
+		      <Modal.Description>
+		        <Header>Serves {this.props.data.yield} people</Header>
+		        <p>Try this as an alternative!</p>
+		        {this.props.data.ingredients ? this.props.data.ingredients.map(ingredient => <li><Ingredient ingredient={ingredient}/></li>) : null}
+		      	<p> Recipe Cost: ${price}</p>
+		      </Modal.Description>
+		    </Modal.Content>
+		    <Modal.Actions>
+		      <Button primary>
+		        Proceed <Icon name='right chevron' />
+		      </Button>
+		    </Modal.Actions>
+	    </Modal>
     )
   }
 
