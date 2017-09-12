@@ -10,7 +10,7 @@ class Signup extends React.Component {
 		}
 	}
 
-	handleEmailChange = (event) => {
+	handleUsernameChange = (event) => {
 		this.setState({username: event.target.value})
 	}
 
@@ -18,7 +18,7 @@ class Signup extends React.Component {
 		this.setState({password: event.target.value})
 	}
 
-	handleSubmit = () => {
+	handleSubmit = (event) => {
 		event.preventDefault();
 		const userParams = {
 			username: this.state.username,
@@ -27,17 +27,20 @@ class Signup extends React.Component {
 		AuthAdapter.signup(userParams)
 			.then((user) => {
 				this.setState({username: "", password: ""})
+				
 				localStorage.setItem("token", user.jwt)
+				console.log(this.props.history)
 				this.props.history.replace("/")
 			})
+		this.props.handleLoginAndSignup()
 	}
 
 	render() {
 		return (
 			<form onSubmit={this.handleSubmit}>
-				<input value={this.state.username} onChange={this.handleEmailChange} type="text" placholder="email" />
-				<input value={this.state.password} onChange={this.handlePasswordChange} type='password' placholder="password" />
-				<input type="submit">Submit</input>
+				<input value={this.state.username} onChange={this.handleUsernameChange} type="text" placeholder="email" />
+				<input value={this.state.password} onChange={this.handlePasswordChange} type='password' placeholder="password" />
+				<input type="submit"/>
 			</form>
 		)
 	}

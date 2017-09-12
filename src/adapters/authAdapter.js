@@ -1,7 +1,7 @@
 export default class AuthAdapter {
 
 	static login(userParams) {
-
+		
 	}
 
 	static signup(userParams) {
