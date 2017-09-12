@@ -64,6 +64,8 @@
   margin-left: auto;
   margin-right: auto;
   width: 40%;
+  position: relative;
+  padding-top: 100px;
 }
 
 .ui.card {

@@ -8,7 +8,7 @@ const Restaurant = (props) => {
   // }
 
   return (
-    <div className = "restaurant">
+    <div className="restaurant">
       <Link to={`/menus/${props.data.id}`}>
         <h1>{props.data.name}</h1>
         <h2>{props.data.location.address}</h2>

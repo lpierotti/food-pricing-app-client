@@ -41,7 +41,9 @@ class RestaurantSearch extends React.Component {
 						<span><input type="submit" className="search square"/></span>
 					</form>
 				</div>
-				<Restaurants data={this.state.response} showMenu={this.showMenu}/>
+				<div>
+					<Restaurants data={this.state.response} showMenu={this.showMenu}/>
+				</div>
 			</div>
 
 
