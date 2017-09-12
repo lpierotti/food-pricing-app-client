@@ -16,9 +16,8 @@ class Recipe extends React.Component {
   filteredName = (name) => {
     let filter = /[a-zA-Z]+(?![^(]*\))/g
     let filteredString = name.match(filter).join(" ").toLowerCase();
-    let replacements = /\b(cup |cups |teaspoon |teaspoons |tablespoon |tablespoons |quart |quarts |pint |pints |dash |pinch |pinches |pound |pounds |tbsp |tsp |fluid oz. |fluid oz |fluid ounce |fluid ounces |ounce |ounces |kilogram |kilograms |gram |grams |ml |mls |gallon |gallons |gal. |liter |liters |stick |sticks |head |peeled |peeled |cooked |large |bunches |cloves |sliced |piece |cm |inch |coarsely |torn |halved |lengthwise |finely |minced |torn| lb|taste |sliced |melted )\b/gi
-    let prepositions = /\b( a | the | an | and | to | of | in | or | for | about )\b/gi
-    return filteredString.replace(replacements,"").replace(prepositions," ");            
+    let replacements = /\b(cup|cups|teaspoon|teaspoons|tablespoon|tablespoons|quart|quarts|pint|pints|dash|dashes|pinch|pinches|pound|pounds|tbsp|tsp|fluid oz.|fluid oz|fluid ounce|fluid ounces|ounce|ounces|kilogram|kilograms|gram|grams|ml|mls|gallon|gallons|gal.|liter|liters|stick|sticks|head|peeled|cooked|large|bunches|cloves|sliced|piece|cm|inch|inches|coarsely|torn|halved|lengthwise|finely|minced|torn|lb|taste|sliced|melted|a|the|an|and|to|of|in|or|for|about)\b/gi
+    return filteredString.replace(replacements,"");            
   }
 
   setIngredients = () => {
@@ -44,12 +43,11 @@ class Recipe extends React.Component {
 
   getIngredients = (ingredients) => {
     const adapter = new IngredientsAdapter()
-    adapter.getIngredientsCost(ingredients).then(json => this.setState({ingredients: json}))
+    adapter.getIngredientsCost(ingredients).then(json => this.setState({ingredients: json}, console.log(this.state.ingredients)))
   }
 
   getPrice = () => {
     let price = 0
-    debugger
     if (this.state.ingredients.ingredients) {
       this.state.ingredients.ingredients.forEach(function(ingredient){
       price += ingredient.price
