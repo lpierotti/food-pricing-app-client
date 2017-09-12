@@ -31,9 +31,14 @@ class Recipe extends React.Component {
     return ingredients;
   }
 
-  componentDidMount() {
+  componentDidUpdate(prevProps, prevState) {
     console.log(this.props)
-    this.getIngredients(this.setIngredients());
+    if (prevProps === this.props) {
+    	return
+    } else {
+    	this.getIngredients(this.setIngredients());
+    }
+    
   }
 
 
@@ -44,9 +49,8 @@ class Recipe extends React.Component {
 
   getPrice = () => {
     let price = 0
-
+    debugger
     if (this.state.ingredients.ingredients) {
-    	debugger
       this.state.ingredients.ingredients.forEach(function(ingredient){
       price += ingredient.price
      })
@@ -58,8 +62,9 @@ class Recipe extends React.Component {
   render() {
     const price = this.getPrice();
     console.log(this.props)
+    console.log(this.state)
     return (
-    	<Modal trigger={<Button>Get Recipe</Button>}>
+    	<Modal trigger={<Button onClick={this.props.searchItem}>Get Recipe</Button>}>
 		    <Modal.Header>{this.props.data.name}</Modal.Header>
 		    <Modal.Content image scrolling>
 		      <Image

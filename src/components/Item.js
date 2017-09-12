@@ -12,14 +12,9 @@ class Item extends React.Component {
   	}
   }
 
-  searchItem = () => {
-  	if (this.state.clicked) {
-  		this.setState({clicked: false, recipe:{}})
-  	} else {
-  		// this.setState({clicked: true})
-  		const adapter = new RecipeAdapter()
-  		adapter.getRecipe(this.props.data.name).then(json => this.setState({clicked: true, recipe: json}))
-  	}
+  searchItem = () => {  	
+	const adapter = new RecipeAdapter()
+	adapter.getRecipe(this.props.data.name).then(json => this.setState({clicked: true, recipe: json}))
 
   }
 
@@ -28,7 +23,7 @@ class Item extends React.Component {
   render() {
   	// console.log(this.state)
   	return (
-	    <div className="ui link card" onClick={this.searchItem}>
+	    <div className="ui link card">
 	      <Card
 		    link
 		    header={this.props.data.name}
@@ -36,7 +31,7 @@ class Item extends React.Component {
 		    description={this.props.data.description}> 
 		    
 		  </Card>
-	     <Recipe data={this.state.recipe}/>
+	     <Recipe searchItem={this.searchItem} data={this.state.recipe}/>
 	    </div>
 	  )
   }
