@@ -16,7 +16,7 @@ class Recipe extends React.Component {
   filteredName = (name) => {
     let filter = /[a-zA-Z]+(?![^(]*\))/g
     let filteredString = name.match(filter).join(" ").toLowerCase();
-    let replacements = /\b(cup|cups|teaspoon|teaspoons|tablespoon|tablespoons|quart|quarts|pint|pints|dash|dashes|pinch|pinches|pound|pounds|tbsp|tsp|fluid oz.|fluid oz|fluid ounce|fluid ounces|ounce|ounces|kilogram|kilograms|gram|grams|ml|mls|gallon|gallons|gal.|liter|liters|stick|sticks|head|peeled|cooked|large|bunches|cloves|sliced|piece|cm|inch|inches|coarsely|torn|halved|lengthwise|finely|minced|torn|lb|taste|sliced|melted|a|the|an|and|to|of|in|or|for|about)\b/gi
+    let replacements = /\b(cup|cups|teaspoon|teaspoons|tablespoon|tablespoons|quart|quarts|pint|pints|dash|dashes|pinch|pinches|pound|pounds|tbsp|tsp|fluid oz.|fluid oz|fluid ounce|fluid ounces|ounce|ounces|kilogram|kilograms|gram|grams|ml|mls|gallon|gallons|gal.|liter|liters|stick|sticks|head|peeled|cooked|large|bunches|cloves|sliced|piece|cm|inch|inches|coarsely|torn|halved|lengthwise|finely|minced|torn|lb|taste|sliced|melted|removed|a|the|an|and|to|of|in|or|for|lightly|beaten|about|&|cut|discarded|into|pieces)\b/gi
     return filteredString.replace(replacements,"");            
   }
 
@@ -74,7 +74,7 @@ class Recipe extends React.Component {
 		      <Modal.Description>
 		        <Header>Serves {this.props.data.yield} people</Header>
 		        <p>Try this as an alternative!</p>
-		        {this.props.data.ingredients ? this.props.data.ingredients.map(ingredient => <li><Ingredient ingredient={ingredient}/></li>) : null}
+		        {this.props.data.ingredients ? this.props.data.ingredients.map(ingredient => <p><Ingredient ingredient={ingredient}/></p>) : null}
 		      	<p> Recipe Cost: ${price}</p>
 		      </Modal.Description>
 		    </Modal.Content>
