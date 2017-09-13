@@ -27,17 +27,17 @@ class App extends Component {
     this.setState({loggedin: true})
   }
 
+// <h1><Link to={`user/recipes`}>Saved Recipes</Link></h1>
   render() {
     return (
       <div className="App">
         <div className="App-header">
-        <Navbar />
-          <h1><Link to={`/`}>Butter Grams</Link></h1>
-          <h1><Link to={`user/recipes`}>Saved Recipes</Link></h1>
-          {localStorage["token"] ? <button onClick={this.handleLogout}> Logout </button> : <div>
-            <button><Link to={'/signup'}> Sign Up </Link></button>
-            <button><Link to={'/login'}> Login </Link></button>
-          </div>}
+          <Navbar />
+          
+
+  
+        </div>
+        <div>
         </div>
         <Route exact path={'/'} component={RestaurantSearch}/>
         <Route path={'/menus/:id'} render={(match) => <Menu venueId={match} />}/>

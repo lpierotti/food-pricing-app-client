@@ -29,6 +29,6 @@ export default class RestaurantAdapter {
 		}
 		
 		return fetch(this.baseUrl2, menuSearchParams)
-			.then(resp => resp.json())
+			.then(resp => resp.json()).catch(err => console.log("throw in garbage"))
 	}
 }

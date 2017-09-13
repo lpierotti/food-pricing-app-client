@@ -1,15 +1,16 @@
 export default class AuthAdapter {
 
 	static login(userParams) {
-		const userJSON = JSON.stringify(userParams)
-		return fetch('http://localhost:3000/api/v1/login', {
+		const request = {
 			method: 'POST',
 			body: userJSON,
 			headers: {
 				"Content-Type": "application/json",
 				"Accept": "application/json"
 			}
-		})
+		}
+		const userJSON = JSON.stringify(userParams)
+		return fetch('http://localhost:3000/api/v1/login', request)
 			.then(res => res.json())
 	}
 
