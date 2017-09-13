@@ -62,11 +62,7 @@ class Recipe extends React.Component {
   	event.preventDefault()
   	const adapter = new RecipeAdapter();
   	const recipeParams = {
-  		name: this.props.data.name,
-  		image_url: this.props.data.image,
-  		yield: this.props.data.yield,
-  		ingredients: this.props.data.ingredients.join("$"),
-  		price: this.getPrice()
+  		reference: this.props.data.recipe_uri
   	}
   	adapter.saveRecipe(recipeParams)
   }

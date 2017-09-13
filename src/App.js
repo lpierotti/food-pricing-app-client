@@ -6,6 +6,7 @@ import Menu from './components/Menu'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import AuthAdapter from './adapters/authAdapter'
+import Navbar from './components/Navbar'
 
 class App extends Component {
   constructor() {
@@ -29,6 +30,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
+        <Navbar />
           <h1><Link to={`/`}>Butter Grams</Link></h1>
           <Route exact path={'/'} component={RestaurantSearch}/>
           {localStorage["token"] ? <button onClick={this.handleLogout}> Logout </button> : <div>

@@ -27,7 +27,7 @@ export default class RecipeAdapter {
 			body: JSON.stringify({recipe: {recipeToSave: recipe}})
 		}
 
-		fetch(this.baseUrl, recipeSaveParams)
+		fetch(`${this.baseUrl}/new`, recipeSaveParams)
 
 	}
 }
