@@ -18,13 +18,16 @@ export default class RecipeAdapter {
 	}
 
 	saveRecipe(recipe) {
+		console.log(recipe)
+		const token = localStorage.getItem("token")
 		const recipeSaveParams = {
 			method: 'POST',
 			headers: {
+				'Authorization': token,
 				'Content-Type': 'application/json',
 				'Accept': 'application/json'
 			},
-			body: JSON.stringify({recipe: {recipeToSave: recipe}})
+			body: JSON.stringify({recipe: recipe})
 		}
 
 		fetch(`${this.baseUrl}/new`, recipeSaveParams)

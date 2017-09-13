@@ -1,5 +1,7 @@
 import React from 'react'
 import UserAdapter from '../adapters/userAdapter'
+import RecipeAdapter from '../adapters/recipeAdapter'
+import Recipe from './Recipe'
 
 class UserRecipesContainer extends React.Component {
 	constructor() {
@@ -9,15 +11,21 @@ class UserRecipesContainer extends React.Component {
 		}
 	}
 
+	// searchItem = () => {  	
+	// 	const adapter = new RecipeAdapter()
+	// 	adapter.getRecipe(this.props.data.name).then(json => this.setState({clicked: true, recipe: json}))
+ //  }
+
 	componentDidMount() {
-		adapter = new UserAdapter()
-		adapter.getUserRecipes()
+		const adapter = new UserAdapter()
+		adapter.getUserRecipes().then(json => this.setState({recipes: json}))
 	}
 	
 	render() {
+		console.log(this.state.recipes)
 		return (
 			<div>
-
+				{this.state.recipes.map(recipe => <Recipe data={recipe}/>)}
 			</div>
 		)
 	}

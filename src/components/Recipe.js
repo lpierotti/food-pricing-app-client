@@ -10,7 +10,8 @@ class Recipe extends React.Component {
     super(props)
 
     this.state = {
-      ingredients: []
+      ingredients: [],
+      loading: true
     }
   }
 
@@ -32,7 +33,6 @@ class Recipe extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.props)
     if (prevProps === this.props) {
     	return
     } else {
@@ -44,7 +44,7 @@ class Recipe extends React.Component {
 
   getIngredients = (ingredients) => {
     const adapter = new IngredientsAdapter()
-    adapter.getIngredientsCost(ingredients).then(json => this.setState({ingredients: json}, console.log(this.state.ingredients)))
+    adapter.getIngredientsCost(ingredients).then(json => this.setState({ingredients: json, loading: false}))
   }
 
   getPrice = () => {
@@ -83,7 +83,7 @@ class Recipe extends React.Component {
 		        <Header>Serving Size: {this.props.data.yield} {this.props.data.yield === 1 ? "person" : "people"}</Header>
 		        <p>Try this as an alternative!</p>
 		        {this.props.data.ingredients ? this.props.data.ingredients.map(ingredient => <p><Ingredient ingredient={ingredient}/></p>) : null}
-		      	<p> Recipe Cost: ${price}</p>
+		      	<p> Recipe Cost: ${price.toFixed(2)}</p>
 		      </Modal.Description>
 		    </Modal.Content>
 		    <Modal.Actions>

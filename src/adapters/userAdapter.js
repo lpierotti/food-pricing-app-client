@@ -5,15 +5,17 @@ export default class UserAdapter {
 	}
 
 	getUserRecipes() {
-	  	const params = {
-	      method: 'GET',
-	      headers: {
-	        'Content-Type':'application/json',
-	        'Accept': 'application/json'
-	      }
-	    }
-	    
-	    return fetch(`${this.baseUrl}/:id/recipes`, params)
-	      .then(resp => resp.json())
+		const token =localStorage.getItem("token")
+  	const params = {
+      method: 'GET',
+      headers: {
+      	'Authorization': token,
+        'Content-Type':'application/json',
+        'Accept': 'application/json'
+      }
+    }
+    
+    return fetch(`${this.baseUrl}/recipes`, params)
+      .then(resp => resp.json())
 	}
 }
