@@ -69,6 +69,7 @@
 
 .ui.card {
   height: 250px;
+  word-break: break-all;
 }
 
 body {
@@ -81,7 +82,7 @@ form{
 }
 
 .search { 
-  padding:6px 15px 6px 30px;
+  padding:6px 15px 6px 15px;
   margin:3px; 
 }
 
@@ -93,16 +94,12 @@ form{
 
 input[type=text]{
   color:#bcbcbc;
-  width:100%;
+  width:60%;
 }
 
 input[type=button], input[type=button]:hover {
   position:relative; 
-  left:-6px;
   border:1px solid #adc5cf;
-  background: #e4f1f9; /* Old browsers */
-  background: -webkit-linear-gradient(top, #e4f1f9 0%,#d5e7f3 100%); /* Chrome10+,Safari5.1+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f1f9', endColorstr='#d5e7f3',GradientType=0 ); /* IE6-9 */
   color:#7da2aa;
   cursor: pointer;
 }
@@ -118,8 +115,11 @@ input[type=button], input[type=button]:hover {
   background-color:#fcfcfc;
 }
 
+
 .menu-items {
   margin-left: auto;
   margin-right: auto;
   width: 80%;
 }
+
+

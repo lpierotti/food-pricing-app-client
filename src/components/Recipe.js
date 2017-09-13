@@ -82,7 +82,7 @@ class Recipe extends React.Component {
 		      <Modal.Description>
 		        <Header>Serving Size: {this.props.data.yield} {this.props.data.yield === 1 ? "person" : "people"}</Header>
 		        <p>Try this as an alternative!</p>
-		        {this.props.data.ingredients ? this.props.data.ingredients.map(ingredient => <p><Ingredient ingredient={ingredient}/></p>) : null}
+		        {this.props.data.ingredients ? this.props.data.ingredients.map(ingredient => <div><Ingredient ingredient={ingredient}/></div>) : null}
 		      	<p> Recipe Cost: ${price.toFixed(2)}</p>
 		      </Modal.Description>
 		    </Modal.Content>
