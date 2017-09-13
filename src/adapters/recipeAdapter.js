@@ -16,4 +16,18 @@ export default class RecipeAdapter {
 		return fetch(this.baseUrl, recipeSearchParams)
 			.then(resp => resp.json())
 	}
+
+	saveRecipe(recipe) {
+		const recipeSaveParams = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
+			},
+			body: JSON.stringify({recipe: {recipeToSave: recipe}})
+		}
+
+		fetch(this.baseUrl, recipeSaveParams)
+
+	}
 }

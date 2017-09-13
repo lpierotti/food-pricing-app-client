@@ -2,6 +2,7 @@ import React from 'react'
 import Ingredient from './Ingredient'
 import IngredientsAdapter from '../adapters/ingredientsAdapter'
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
+import RecipeAdapter from '../adapters/recipeAdapter'
 
 class Recipe extends React.Component {
 
@@ -57,6 +58,19 @@ class Recipe extends React.Component {
     return 0;
   }
 
+  handleSave = (event) => {
+  	event.preventDefault()
+  	const adapter = new RecipeAdapter();
+  	const recipeParams = {
+  		name: this.props.data.name,
+  		image_url: this.props.data.image,
+  		yield: this.props.data.yield,
+  		ingredients: this.props.data.ingredients.join("$"),
+  		price: this.getPrice()
+  	}
+  	adapter.saveRecipe(recipeParams)
+  }
+
   render() {
     const price = this.getPrice();
     return (
@@ -76,6 +90,11 @@ class Recipe extends React.Component {
 		      	<p> Recipe Cost: ${price}</p>
 		      </Modal.Description>
 		    </Modal.Content>
+		    <Modal.Actions>
+		      <button onClick={this.handleSave}>
+		        Save Recipe 
+		      </button>
+		    </Modal.Actions>
 	    </Modal>
     )
   }
