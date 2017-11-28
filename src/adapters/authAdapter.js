@@ -1,6 +1,7 @@
 export default class AuthAdapter {
 
 	static login(userParams) {
+		const userJSON = JSON.stringify(userParams)
 		const request = {
 			method: 'POST',
 			body: userJSON,
@@ -9,7 +10,7 @@ export default class AuthAdapter {
 				"Accept": "application/json"
 			}
 		}
-		const userJSON = JSON.stringify(userParams)
+		
 		return fetch('http://localhost:3000/api/v1/login', request)
 			.then(res => res.json())
 	}

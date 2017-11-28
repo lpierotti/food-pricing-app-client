@@ -62,7 +62,7 @@
 .restaurants {
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
+  width: 600px;
   position: relative;
   padding-top: 100px;
 }
@@ -119,7 +119,7 @@ input[type=button], input[type=button]:hover {
 .menu-items {
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 900px;
 }
 
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Route, Link} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import RestaurantSearch from './components/RestaurantSearch'
 import Menu from './components/Menu'
 import Login from './components/Login'
@@ -27,7 +27,6 @@ class App extends Component {
     this.setState({loggedin: true})
   }
 
-// <h1><Link to={`user/recipes`}>Saved Recipes</Link></h1>
   render() {
     return (
       <div className="App">

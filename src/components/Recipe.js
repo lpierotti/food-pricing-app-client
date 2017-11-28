@@ -87,9 +87,7 @@ class Recipe extends React.Component {
 		      </Modal.Description>
 		    </Modal.Content>
 		    <Modal.Actions>
-		      <button onClick={this.handleSave}>
-		        Save Recipe 
-		      </button>
+		      {localStorage["token"] ? <Button onClick={this.handleSave}>Save Recipe</Button> : null}
 		    </Modal.Actions>
 	    </Modal>
     )

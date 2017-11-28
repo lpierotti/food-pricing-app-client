@@ -1,6 +1,5 @@
 import React from 'react'
 import UserAdapter from '../adapters/userAdapter'
-import RecipeAdapter from '../adapters/recipeAdapter'
 import UserRecipe from './UserRecipe'
 import {Segment, Divider} from 'semantic-ui-react'
 
@@ -12,10 +11,6 @@ class UserRecipesContainer extends React.Component {
 		}
 	}
 
-	// searchItem = () => {  	
-	// 	const adapter = new RecipeAdapter()
-	// 	adapter.getRecipe(this.props.data.name).then(json => this.setState({clicked: true, recipe: json}))
- //  }
 
 	componentDidMount() {
 		const adapter = new UserAdapter()
@@ -26,7 +21,7 @@ class UserRecipesContainer extends React.Component {
 		console.log(this.state.recipes)
 		return (
 			<div>
-				{this.state.recipes.recipes ? this.state.recipes.recipes.map(recipe => <Segment padded><UserRecipe data={recipe}/><Divider horizontal/></Segment>) : null}
+				{this.state.recipes.recipes ? this.state.recipes.recipes.map(recipe => <Segment padded><UserRecipe data={recipe} /><Divider horizontal/></Segment>) : null}
 
 			</div>
 		)

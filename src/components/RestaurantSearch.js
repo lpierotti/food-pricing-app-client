@@ -1,6 +1,7 @@
 import React from 'react'
 import RestaurantAdapter from '../adapters/restaurantAdapter'
 import Restaurants from './Restaurants'
+import { Button } from 'semantic-ui-react'
 
 class RestaurantSearch extends React.Component {
 	constructor() {
@@ -38,7 +39,7 @@ class RestaurantSearch extends React.Component {
 				<div className="search-form">
 					<form onSubmit={this.handleSubmit}>
 						<span><input type="text" className="search rounded" value={this.state.searchTerm} onChange={this.handleChange}/></span>
-						<span><input type="submit" className="search square"/></span>
+						<span><Button className="search square">Submit</Button></span>
 					</form>
 				</div>
 				<div>
