@@ -14,11 +14,11 @@ import {
     <Menu fixed='top' size='large'>
       <Container>
         <Menu.Menu position='left'>
-          {localStorage["token"] ? <Menu.Item as='a'> <Link to={`/user/recipes`}>Saved Recipes</Link></Menu.Item> : null}
+          {localStorage["token"] ? <Menu.Item> <Link to={`/user/recipes`}>Saved Recipes</Link></Menu.Item> : null}
         </Menu.Menu>
           <h1><Link to={`/`}>Butter Grams</Link></h1>
         <Menu.Menu position='right'>
-          {localStorage["token"] ? <Menu.Item as='a'><Link to={'/'} onClick={handleLogout}> Log Out</Link></Menu.Item> : <div><Menu.Item as='a'><Link to={'/signup'}>Sign Up</Link></Menu.Item><Menu.Item as='a'> <Link to={'/login'}>Log In</Link></Menu.Item></div>}
+          {localStorage["token"] ? <Menu.Item><Link to={'/'} onClick={handleLogout}> Log Out</Link></Menu.Item> : <div><Menu.Item><Link to={'/signup'}>Sign Up</Link></Menu.Item><Menu.Item> <Link to={'/login'}>Log In</Link></Menu.Item></div>}
         </Menu.Menu>
       </Container>
     </Menu>

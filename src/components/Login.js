@@ -1,5 +1,6 @@
 import React from 'react'
 import AuthAdapter from '../adapters/authAdapter'
+import { Form, Button, Segment } from 'semantic-ui-react'
 
 class Login extends React.Component {
 	constructor() {
@@ -35,11 +36,16 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<input value={this.state.username} onChange={this.handleUsernameChange} type="text" placeholder="email" />
-				<input value={this.state.password} onChange={this.handlePasswordChange} type='password' placeholder="password" />
-				<input type="submit"/>
-			</form>
+			<div className='form-container'>
+				<Segment className="form-segment">
+					<h2>Login</h2>
+					<Form onSubmit={this.handleSubmit}>
+						<Form.Input value={this.state.username} onChange={this.handleUsernameChange} type="text" placeholder="email" />
+						<Form.Input value={this.state.password} onChange={this.handlePasswordChange} type='password' placeholder="password" />
+						<Button>Submit</Button>
+					</Form>
+				</Segment>
+			</div>
 		)
 	}
 }
