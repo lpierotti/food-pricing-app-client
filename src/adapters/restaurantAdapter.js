@@ -1,7 +1,7 @@
 export default class RestaurantAdapter {
 	constructor() {
-		this.baseUrl = 'http://localhost:3000/api/v1/restaurants'	
-		this.baseUrl2 = 'http://localhost:3000/api/v1/menus'		
+		this.baseUrl = 'https://buttergram-api.herokuapp.com/api/v1/restaurants'	
+		this.baseUrl2 = 'https://buttergram-api.herokuapp.com/api/v1/menus'		
 	}
 
 	getRestaurants(restaurant) {

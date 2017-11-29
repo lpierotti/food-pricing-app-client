@@ -11,13 +11,13 @@ export default class AuthAdapter {
 			}
 		}
 		
-		return fetch('http://localhost:3000/api/v1/login', request)
+		return fetch('https://buttergram-api.herokuapp.com/api/v1/login', request)
 			.then(res => res.json())
 	}
 
 	static signup(userParams) {
 		const userJSON = JSON.stringify(userParams)
-		return fetch('http://localhost:3000/api/v1/signup', {
+		return fetch('https://buttergram-api.herokuapp.com/api/v1/signup', {
 			method: 'POST',
 			body: userJSON,
 			headers: {

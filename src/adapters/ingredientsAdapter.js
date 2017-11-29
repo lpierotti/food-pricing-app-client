@@ -1,6 +1,6 @@
 export default class IngredientsAdapter {
   constructor() {
-    this.baseUrl = 'http://localhost:3000/api/v1/ingredients'   
+    this.baseUrl = 'https://buttergram-api.herokuapp.com/api/v1/ingredients'   
   }
 
   getIngredientsCost(ingredients) {
